@@ -1,0 +1,1 @@
+<?php /**PATH /root/Documents/UN/report/resources/views/welcome.blade.php ENDPATH**/ ?>
