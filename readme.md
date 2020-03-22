@@ -1,1 +1,1 @@
-test
+Aplikasi Pembayaran SPP Berbasi web
