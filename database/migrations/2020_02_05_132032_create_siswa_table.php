@@ -17,8 +17,10 @@ class CreateSiswaTable extends Migration
             $table->bigIncrements('id');
             $table->string('nama');
             $table->string('nik');
+            $table->string('pict')->nullable();
             $table->string('kelas');
             $table->string('jurusan');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

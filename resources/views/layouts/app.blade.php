@@ -1,268 +1,402 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>RE-SPP</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <!-- VENDOR CSS -->
-    <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('vendor/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('vendor/linearicons/style.css')}}">
-    <link rel="stylesheet" href="{{asset('vendor/chartist/css/chartist-custom.css')}}">
-    <!-- MAIN CSS -->
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-    <link rel="stylesheet" href="{{asset('css/demo.css')}}">
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-    <!-- ICONS -->
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>SPP</title>
+	@toastr_css
+    
+	<!-- Global stylesheets -->
+    <link rel="stylesheet" href="{{asset('aset/css/icons/icomoon/styles.css')}}">
+    <link rel="stylesheet" href="{{asset('aset/css/icons/fontawesome/styles.min.css')}}">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="" rel="stylesheet" type="text/css">
+	<link href="{{asset('aset/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{asset('aset/css/bootstrap_limitless.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{asset('aset/css/layout.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{asset('aset/css/components.min.css')}}" rel="stylesheet" type="text/css">
+	<link href="{{asset('aset/css/colors.min.css')}}" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
+
 </head>
 
 <body>
-    <!-- WRAPPER -->
-    <div id="wrapper">
-        <!-- NAVBAR -->
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="brand">
-                <a href="index.html"><img src="{{asset('img/logo-dark.png')}}" alt="Klorofil Logo" class="img-responsive logo"></a>
-            </div>
-            <div class="container-fluid">
-              <!--   <div class="navbar-btn">
-                    <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
-                </div>
-                <form class="navbar-form navbar-left">
-                    <div class="input-group">
-                        <input type="text" value="" class="form-control" placeholder="Search dashboard...">
-                        <span class="input-group-btn"><button type="button" class="btn btn-primary">Go</button></span>
-                    </div>
-                </form> -->
-  <!--               <div class="navbar-btn navbar-btn-right">
-                    <a class="btn btn-success update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-                </div> -->
-                <div id="navbar-menu">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown">
-                                <i class="lnr lnr-alarm"></i>
-                                <span class="badge bg-danger">5</span>
-                            </a>
-                            <ul class="dropdown-menu notifications">
-                                <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>System space is almost full</a></li>
-                                <li><a href="#" class="notification-item"><span class="dot bg-danger"></span>You have 9 unfinished tasks</a></li>
-                                <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Monthly report is available</a></li>
-                                <li><a href="#" class="notification-item"><span class="dot bg-warning"></span>Weekly meeting in 1 hour</a></li>
-                                <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Your request has been approved</a></li>
-                                <li><a href="#" class="more">See all notifications</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Basic Use</a></li>
-                                <li><a href="#">Working With Data</a></li>
-                                <li><a href="#">Security</a></li>
-                                <li><a href="#">Troubleshooting</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="assets/img/user.png" class="img-circle" alt=""> <span></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
-                                <li><a href="#"><i class="lnr lnr-envelope"></i> <span>Message</span></a></li>
-                                <li><a href="#"><i class="lnr lnr-cog"></i> <span>Settings</span></a></li>
-                                <li><a href="{{ route('logout') }}"onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><i class="lnr lnr-exit"></i> <span>Logout</span></a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+
+	<!-- Main navbar -->
+	<div class="navbar navbar-expand-md navbar-light">
+
+		<!-- Header with logos -->
+		<div class="navbar-header navbar-dark d-none d-md-flex align-items-md-center">
+			<div class="navbar-brand navbar-brand-md">
+				<a href="index.html" class="d-inline-block">
+					<img src="../../../../global_assets/images/logo_light.png" alt="">
+				</a>
+			</div>
+			
+			<div class="navbar-brand navbar-brand-xs">
+				<a href="index.html" class="d-inline-block">
+					<img src="../../../../global_assets/images/logo_icon_light.png" alt="">
+				</a>
+			</div>
+		</div>
+		<!-- /header with logos -->
+	
+
+		<!-- Mobile controls -->
+		<div class="d-flex flex-1 d-md-none">
+			<div class="navbar-brand mr-auto">
+				<a href="index.html" class="d-inline-block">
+					<img src="../../../../global_assets/images/logo_dark.png" alt="">
+				</a>
+			</div>	
+
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-mobile">
+				<i class="icon-tree5"></i>
+			</button>
+
+			<button class="navbar-toggler sidebar-mobile-main-toggle" type="button">
+				<i class="icon-paragraph-justify3"></i>
+			</button>
+		</div>
+		<!-- /mobile controls -->
+
+
+		<!-- Navbar content -->
+		<div class="collapse navbar-collapse" id="navbar-mobile">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a href="#" class="navbar-nav-link sidebar-control sidebar-main-toggle d-none d-md-block">
+						<i class="icon-paragraph-justify3"></i>
+					</a>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a href="#" class="navbar-nav-link dropdown-toggle caret-0" data-toggle="dropdown">
+						<i class="icon-people"></i>
+						<span class="d-md-none ml-2">Users</span>
+						<span class="badge badge-mark border-pink-400 ml-auto ml-md-0"></span>
+					</a>
+					
+					<div class="dropdown-menu dropdown-content wmin-md-300">
+						<div class="dropdown-content-header">
+							<span class="font-weight-semibold">Users online</span>
+							<a href="#" class="text-default"><i class="icon-search4 font-size-base"></i></a>
+						</div>
+
+						<div class="dropdown-content-body dropdown-scrollable">
+							<ul class="media-list">
+								<li class="media">
+									<div class="mr-3">
+										<img src="../../../../global_assets/images/placeholders/placeholder.jpg" width="36" height="36" class="rounded-circle" alt="">
+									</div>
+									<div class="media-body">
+										<a href="#" class="media-title font-weight-semibold">Vanessa Aurelius</a>
+										<span class="d-block text-muted font-size-sm">Calon karyawan</span>
+									</div>
+									<div class="ml-3 align-self-center"><span class="badge badge-mark border-grey-400"></span></div>
+								</li>
+
+							</ul>
+						</div>
+
+						<div class="dropdown-content-footer bg-light">
+							<a href="#" class="text-grey mr-auto">All users</a>
+							<a href="#" class="text-grey"><i class="icon-gear"></i></a>
+						</div>
+					</div>
+				</li>
+			</ul>
+
+			<span class="badge bg-pink-400 badge-pill ml-md-3 mr-md-auto">1 users online</span>
+
+			<ul class="navbar-nav">
+				<!-- <li class="nav-item dropdown">
+					<a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
+						<img src="../../../../global_assets/images/lang/gb.png" class="img-flag mr-2" alt="">
+						English
+					</a>
+
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#" class="dropdown-item english active"><img src="../../../../global_assets/images/lang/gb.png" class="img-flag" alt=""> English</a>
+						<a href="#" class="dropdown-item ukrainian"><img src="../../../../global_assets/images/lang/ua.png" class="img-flag" alt=""> Українська</a>
+						<a href="#" class="dropdown-item deutsch"><img src="../../../../global_assets/images/lang/de.png" class="img-flag" alt=""> Deutsch</a>
+						<a href="#" class="dropdown-item espana"><img src="../../../../global_assets/images/lang/es.png" class="img-flag" alt=""> España</a>
+						<a href="#" class="dropdown-item russian"><img src="../../../../global_assets/images/lang/ru.png" class="img-flag" alt=""> Русский</a>
+					</div>
+				</li> -->
+
+				<li class="nav-item dropdown">
+					<a href="#" class="navbar-nav-link dropdown-toggle caret-0" data-toggle="dropdown">
+						<i class="icon-bubbles4"></i>
+						<span class="d-md-none ml-2">Messages</span>
+						<span class="badge badge-mark border-pink-400 ml-auto ml-md-0"></span>
+					</a>
+					
+					<div class="dropdown-menu dropdown-menu-right dropdown-content wmin-md-350">
+						<div class="dropdown-content-header">
+							<span class="font-weight-semibold">Messages</span>
+							<a href="#" class="text-default"><i class="icon-compose"></i></a>
+						</div>
+
+						<div class="dropdown-content-body dropdown-scrollable">
+							<ul class="media-list">
+
+								<li class="media">
+									<div class="mr-3">
+										<img src="../../../../global_assets/images/placeholders/placeholder.jpg" width="36" height="36" class="rounded-circle" alt="">
+									</div>
+									<div class="media-body">
+										<div class="media-title">
+											<a href="#">
+												<span class="font-weight-semibold">Lyy23</span>
+												<span class="text-muted float-right font-size-sm">Mon</span>
+											</a>
+										</div>
+										
+										<span class="text-muted">kontrak Lyy23 habis</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+
+						<div class="dropdown-content-footer bg-light">
+							<a href="#" class="text-grey mr-auto">All messages</a>
+							<div>
+								<a href="#" class="text-grey" data-popup="tooltip" title="Mark all as read"><i class="icon-radio-unchecked"></i></a>
+								<a href="#" class="text-grey ml-2" data-popup="tooltip" title="Settings"><i class="icon-cog3"></i></a>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li class="nav-item dropdown dropdown-user">
+					<a href="#" class="navbar-nav-link d-flex align-items-center dropdown-toggle" data-toggle="dropdown">
+						<img src="{{asset('aset/images/placeholders/placeholder.jpg')}}" class="rounded-circle mr-2" height="34" alt="">
+						<span>{{Auth::user()->name}}</span>
+					</a>
+
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="#" class="dropdown-item"><i class="icon-user-plus"></i> My profile</a>
+						<!-- <a href="#" class="dropdown-item"><i class="icon-comment-discussion"></i> Messages <span class="badge badge-pill bg-indigo-400 ml-auto">58</span></a> -->
+						<div class="dropdown-divider"></div>
+						<a href="#" class="dropdown-item"><i class="icon-cog5"></i> Account settings</a>
+						<a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        <i class="icon-switch2"></i> Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!-- /navbar content -->
+		
+	</div>
+	<!-- /main navbar -->
+
+					
+	<!-- Page content -->
+	<div class="page-content">
+
+		<!-- Main sidebar -->
+		<div class="sidebar sidebar-dark  sidebar-main sidebar-expand-md">
+
+			<!-- Sidebar mobile toggler -->
+			<div class="sidebar-mobile-toggler text-center">
+				<a href="#" class="sidebar-mobile-main-toggle">
+					<i class="icon-arrow-left8"></i>
+				</a>
+				Navigation
+				<a href="#" class="sidebar-mobile-expand">
+					<i class="icon-screen-full"></i>
+					<i class="icon-screen-normal"></i>
+				</a>
+			</div>
+			<!-- /sidebar mobile toggler -->
 
 
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- <li>
-                            <a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-                        </li> -->
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- END NAVBAR -->
-        <!-- LEFT SIDEBAR -->
-        <div id="sidebar-nav" class="sidebar">
-            <div class="sidebar-scroll">
-                <nav>
-                    <ul class="nav">
-                        <li><a href="{{url('home')}}" class="active"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                        <li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Data Siswa</span></a></li>
-                        <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Notifications</span></a></li>
-                        <li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Reporting Charts</span></a></li>
-                        <li>
-                            <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-file-empty"></i> <span>User Management</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-                            <div id="subPages" class="collapse ">
-                                <ul class="nav">
-                                    <li><a href="page-profile.html" class="">Profile</a></li>
-                                    <li><a href="page-login.html" class="">Login</a></li>
-                                    <li><a href="page-lockscreen.html" class="">Lockscreen</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Data Siswa</span></a></li>
-                        <li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>History Pembayaran</span></a></li>
-                        <li><a href="tables.html" class=""><i class="lnr lnr-dice"></i> <span>Recent Activity</span></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!-- END LEFT SIDEBAR -->
-        <!-- MAIN -->
-        <div class="main">
-            <!-- MAIN CONTENT -->
-            <div class="main-content">
-                @yield('content')
-            </div>
-            <!-- END MAIN CONTENT -->
-        </div>
-        <!-- END MAIN -->
-        <div class="clearfix"></div>
-        <footer>
-            <div class="container-fluid">
-                <p class="copyright">Shared by <i class="fa fa-love"></i><a href="https://bootstrapthemes.co">BootstrapThemes</a></p>
-            </div>
-        </footer>
-    </div>
-    <!-- END WRAPPER -->
-    <!-- Javascript -->
-    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-    <script src="{{asset('vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
-    <script src="{{asset('vendor/chartist/js/chartist.min.js')}}"></script>
-    <script src="{{asset('js/klorofil-common.js')}}"></script>
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-    <script>
-    $(function() {
-        var data, options;
+			<!-- Sidebar content -->
+			<div class="sidebar-content">
+				
+				<!-- User menu -->
+				<div class="sidebar-user">
+					<div class="card-body">
+						<div class="media">
+							<div class="mr-3">
+								<a href="#"><img src="{{asset('aset/images/placeholders/placeholder.jpg')}}" width="38" height="38" class="rounded-circle" alt=""></a>
+							</div>
 
-        // headline charts
-        data = {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            series: [
-                [23, 29, 24, 40, 25, 24, 35],
-                [14, 25, 18, 34, 29, 38, 44],
-            ]
-        };
+							<div class="media-body">
+								<div class="media-title font-weight-semibold">{{Auth::user()->name}}</div>
+								<div class="font-size-xs opacity-50">
+									<i class="icon-pin font-size-sm"></i> &nbsp;Dimana-mana, IYA
+								</div>
+							</div>
 
-        options = {
-            height: 300,
-            showArea: true,
-            showLine: false,
-            showPoint: false,
-            fullWidth: true,
-            axisX: {
-                showGrid: false
-            },
-            lineSmooth: false,
-        };
+							<div class="ml-3 align-self-center">
+								<a href="#" class="text-white"><i class="icon-cog3"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /user menu -->
 
-        new Chartist.Line('#headline-chart', data, options);
+				
+				<!-- Main navigation -->
+				<div class="card card-sidebar-mobile">
+					<ul class="nav nav-sidebar" data-nav-type="accordion">
+
+						<!-- Main -->
+						<li class="nav-item-header"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
+						<li class="nav-item">
+							<a href="{{route('home')}}" class="nav-link active">
+								<i class="icon-home4"></i>
+								<span>
+									Dashboard
+									<span class="d-block font-weight-normal opacity-50">welcome to dashboard</span>
+								</span>
+							</a>
+						</li>
+
+                        <li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-database4"></i> <span>Data</span></a>
+
+							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+								<li class="nav-item"><a href="{{route('siswa.index')}}" class="nav-link">Siswa</a></li>
+								<li class="nav-item"><a href="{{route('petugas.index')}}" class="nav-link">Petugas</a></li>
+							</ul>
+						</li>
+						
+                        <li class="nav-item"><a href="{{route('chart.index')}}" class="nav-link"><i class="icon-chart"></i> <span>Reporting chart</span></a></li>
+                        <li class="nav-item"><a href="{{route('pembayaran.index')}}" class="nav-link"><i class="icon-paypal"></i> <span>Pembayaran</span></a></li>
+                        <li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-users"></i> <span>users management</span></a>
+
+							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+								<li class="nav-item"><a href="{{route('user.index')}}" class="nav-link">users</a></li>
+							</ul>
+						</li>
+                        <li class="nav-item nav-item-submenu">
+							<a href="#" class="nav-link"><i class="icon-history"></i> <span>Transaksi & History</span></a>
+
+							<ul class="nav nav-group-sub" data-submenu-title="Layouts">
+								<li class="nav-item"><a href="{{route('history.index')}}" class="nav-link">history pembayaran</a></li>
+                                <li class="nav-item"><a href="{{route('transaksi.index')}}" class="nav-link">Transaksi</a></li>
+							</ul>
+						</li>
+                        <li class="nav-item"><a href="{{route('setting.index')}}" class="nav-link"><i class="icon-cog2"></i> <span>Setting SPP</span></a></li>
+
+                        <li class="nav-item"><a href="{{route('trash.index')}}" class="nav-link"><i class="icon-trash"></i> <span>Trash</span></a></li>
+
+						<!-- /main -->
+							
+					</ul>
+				</div>
+				<!-- /main navigation -->
+
+			</div>
+			<!-- /sidebar content -->
+			
+		</div>
+		<!-- /main sidebar -->
 
 
-        // visits trend charts
-        data = {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            series: [{
-                name: 'series-real',
-                data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
-            }, {
-                name: 'series-projection',
-                data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
-            }]
-        };
+		<!-- Main content -->
+		<div class="content-wrapper">
 
-        options = {
-            fullWidth: true,
-            lineSmooth: false,
-            height: "270px",
-            low: 0,
-            high: 'auto',
-            series: {
-                'series-projection': {
-                    showArea: true,
-                    showPoint: false,
-                    showLine: false
-                },
-            },
-            axisX: {
-                showGrid: false,
+			<!-- Page header -->
+			<div class="page-header">
+				<div class="page-header-content header-elements-md-inline">
+					<div class="page-title d-flex">
+						<h4><i class="icon-arrow-left52 mr-2"></i> <span class="font-weight-semibold">Home</span> - Dashboard</h4>
+						<a href="#" class="header-elements-toggle text-default d-md-none"><i class="icon-more"></i></a>
+					</div>
 
-            },
-            axisY: {
-                showGrid: false,
-                onlyInteger: true,
-                offset: 0,
-            },
-            chartPadding: {
-                left: 20,
-                right: 20
-            }
-        };
-
-        new Chartist.Line('#visits-trends-chart', data, options);
+					<div class="header-elements d-none text-center text-md-left mb-3 mb-md-0">
+						<div class="btn-group">
+							<button type="button" class="btn bg-indigo-400"><i class="icon-stack2 mr-2"></i> New report</button>
+							<button type="button" class="btn bg-indigo-400 dropdown-toggle" data-toggle="dropdown"></button>
+							<div class="dropdown-menu dropdown-menu-right">
+								<!-- <div class="dropdown-header">Actions</div> -->
+								<!-- <a href="#" class="dropdown-item"><i class="icon-file-eye"></i> View reports</a>
+								<a href="#" class="dropdown-item"><i class="icon-file-plus"></i> Edit reports</a>
+								<a href="#" class="dropdown-item"><i class="icon-file-stats"></i> Statistics</a> -->
+								<div class="dropdown-header">Export</div>
+								<a href="#" class="dropdown-item"><i class="icon-file-pdf"></i> Export to PDF</a>
+								<a href="#" class="dropdown-item"><i class="icon-file-excel"></i> Export to CSV</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /page header -->
 
 
-        // visits chart
-        data = {
-            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            series: [
-                [6384, 6342, 5437, 2764, 3958, 5068, 7654]
-            ]
-        };
+			<!-- Content area -->
+			<div class="content pt-0">
 
-        options = {
-            height: 300,
-            axisX: {
-                showGrid: false
-            },
-        };
+			@yield('content')
 
-        new Chartist.Bar('#visits-chart', data, options);
+			</div>
+			<!-- /content area -->
 
 
-        // real-time pie chart
-        var sysLoad = $('#system-load').easyPieChart({
-            size: 130,
-            barColor: function(percent) {
-                return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
-            },
-            trackColor: 'rgba(245, 245, 245, 0.8)',
-            scaleColor: false,
-            lineWidth: 5,
-            lineCap: "square",
-            animate: 800
-        });
+			<!-- Footer -->
+			<div class="navbar navbar-expand-lg navbar-light">
+				<div class="text-center d-lg-none w-100">
+					<button type="button" class="navbar-toggler dropdown-toggle" data-toggle="collapse" data-target="#navbar-footer">
+						<i class="icon-unfold mr-2"></i>
+						Footer
+					</button>
+				</div>
 
-        var updateInterval = 3000; // in milliseconds
+				<div class="navbar-collapse collapse" id="navbar-footer">
+					<span class="navbar-text">
+						&copy; 2020 
+					</span>
 
-        setInterval(function() {
-            var randomVal;
-            randomVal = getRandomInt(0, 100);
+					<!-- <ul class="navbar-nav ml-lg-auto">
+						<li class="nav-item"><a href="https://kopyov.ticksy.com/" class="navbar-nav-link" target="_blank"><i class="icon-lifebuoy mr-2"></i> Support</a></li>
+						<li class="nav-item"><a href="http://demo.interface.club/limitless/docs/" class="navbar-nav-link" target="_blank"><i class="icon-file-text2 mr-2"></i> Docs</a></li>
+						<li class="nav-item"><a href="https://themeforest.net/item/limitless-responsive-web-application-kit/13080328?ref=kopyov" class="navbar-nav-link font-weight-semibold"><span class="text-pink-400"><i class="icon-cart2 mr-2"></i> Purchase</span></a></li>
+					</ul> -->
+				</div>
+			</div>
+			<!-- /footer -->
 
-            sysLoad.data('easyPieChart').update(randomVal);
-            sysLoad.find('.percent').text(randomVal);
-        }, updateInterval);
+		</div>
+		<!-- /main content -->
 
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
+	</div>
 
-    });
-    </script>
+
+	<!-- Core JS files -->
+    
+	<script src="{{asset('aset/js/main/jquery.min.js')}}"></script>
+	<script src="{{asset('aset/js/main/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('aset/js/main/app.js')}}"></script>
+	@toastr_js
+	@toastr_render
+	<!-- <script src="{{asset('aset/js/plugins/loaders/blockui.min.js')}}"></script> -->
+	<!-- <script src="{{asset('aset/js/plugins/ui/ripple.min.js')}}"></script> -->
+	<!-- /core JS files -->
+	<!-- Theme JS files -->
+            <script src="{{asset('aset/js/plugins/visualization/d3/d3.min.js')}}"></script>
+            <script src="{{asset('aset/js/plugins/visualization/d3/d3_tooltip.js')}}"></script>
+            <script src="{{asset('aset/js/plugins/forms/styling/switchery.min.js')}}"></script>
+            <script src="{{asset('aset/js/plugins/forms/selects/bootstrap_multiselect.js')}}"></script>
+            <script src="{{asset('aset/js/plugins/ui/moment/moment.min.js')}}"></script>
+            <script src="{{asset('aset/js/plugins/pickers/daterangepicker.js')}}"></script>
+            <script src="{{asset('aset/js/demo_pages/dashboard.js')}}"></script>
+	<!-- /theme JS files -->
+
+
+
 </body>
-
 </html>

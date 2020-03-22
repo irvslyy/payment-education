@@ -1,0 +1,44 @@
+@extends('layouts.app')
+
+@section('content')
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header bg-white header-elements-inline">
+                    <h6 class="card-title">Chart</h6>
+                    <div class="header-elements">
+                        <!-- <div class="list-icons">
+                            <div class="dropdown">
+                                <a href="#" class="list-icons-item dropdown-toggle" data-toggle="dropdown"><i class="icon-menu7"></i></a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="#" class="dropdown-item">Action</a>
+                                    <a href="#" class="dropdown-item">Another action</a>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="header-elements">
+                            <!-- <div class="btn-group">
+                                <button type="button" class="btn bg-indigo-400 dropdown-toggle" data-toggle="dropdown"></button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <div class="dropdown-header">Export</div>
+                                    <a href="#" class="dropdown-item"><i class="icon-file-pdf"></i> Export to PDF</a>
+                                    <a href="#" class="dropdown-item"><i class="icon-file-excel"></i> Export to CSV</a>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                     <canvas id="canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@endsection

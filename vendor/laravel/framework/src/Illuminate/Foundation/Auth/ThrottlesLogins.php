@@ -18,6 +18,7 @@ trait ThrottlesLogins
      * @param  \Illuminate\Http\Request  $request
      * @return bool
      */
+    
     protected function hasTooManyLoginAttempts(Request $request)
     {
         return $this->limiter()->tooManyAttempts(
@@ -67,7 +68,6 @@ trait ThrottlesLogins
     {
         $this->limiter()->clear($this->throttleKey($request));
     }
-
     /**
      * Fire an event when a lockout occurs.
      *
@@ -120,3 +120,5 @@ trait ThrottlesLogins
         return property_exists($this, 'decayMinutes') ? $this->decayMinutes : 1;
     }
 }
+
+
